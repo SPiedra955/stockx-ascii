@@ -21,14 +21,14 @@ public class BidsTest {
         Bid first_bid = new Bid("9", 300);
         Bid second_bid = new Bid("6.5", 400);
         Ask ask = new Ask("9", 200);
-        Ask first_Ask = new Ask("5.5", 400);
+        Ask first_ask = new Ask("5.5", 400);
         Ask second_ask = new Ask("8.5", 600);
 
         sneaker.add(bid);
         sneaker.add(first_bid);
         sneaker.add(second_bid);
         sneaker.add(ask);
-        sneaker.add(first_Ask);
+        sneaker.add(first_ask);
         sneaker.add(second_ask);
 
         assertEquals(3, bids.checkCriteria(sneaker).size());
