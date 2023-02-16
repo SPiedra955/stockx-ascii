@@ -1,7 +1,8 @@
 package edu.craptocraft.stockx.criteria;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
+
 import edu.craptocraft.stockx.item.Item;
 import edu.craptocraft.stockx.item.Offer;
 
@@ -16,14 +17,13 @@ public class Min implements Criteria {
     }
 
     @Override
-    public List<Offer> checkCriteria(Item sneakers){
+    public List<Offer> checkCriteria(Item sneaker){
 
-        Criteria maxCriteria = new AndCriteria(criteria, otherCriteria);
+        Criteria minCriteria = new AndCriteria(criteria, otherCriteria);
+        List<Offer> criteriaMin = minCriteria.checkCriteria(sneaker).stream().min(Offer::compareTo)
+        .stream().collect(Collectors.toList());
 
-        Optional<Offer> offer = maxCriteria.checkCriteria(sneakers).stream().
-                                min(Offer::compareTo);
-
-        return offer.isPresent() ? List.of(offer.get()) : List.of();
+        return criteriaMin;
 
     }
     

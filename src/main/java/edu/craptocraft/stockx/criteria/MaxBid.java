@@ -9,12 +9,13 @@ import edu.craptocraft.stockx.item.Offer;
 
 public class MaxBid implements Criteria{
 
-    @Override
-    public List<Offer> checkCriteria(Item sneakers){
+    public MaxBid(){};
 
-        return sneakers.offers().stream().filter(e -> e instanceof Bid)
-                       .max(Offer::compareTo).stream().collect(Collectors.toList());
-        
+    @Override
+    public List<Offer> checkCriteria(Item sneaker){
+        return sneaker.offers().stream().filter(e -> e instanceof Bid).
+                    max(Offer::compareTo).stream()
+                    .collect(Collectors.toList());
     }
     
 }

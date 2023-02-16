@@ -1,19 +1,24 @@
 package edu.craptocraft.stockx.criteria;
 
 import java.util.List;
+
 import edu.craptocraft.stockx.item.Item;
 import edu.craptocraft.stockx.item.Offer;
 
-public class LastSale implements Criteria {
+public class LastSale implements Criteria{
+
+    public LastSale(){};
 
     @Override
-    public List<Offer> checkCriteria(Item sneakers){
+    public List<Offer> checkCriteria(Item sneaker){
 
         Criteria lastSale = new Sales();
 
-        List<Offer> salesList = lastSale.checkCriteria(sneakers);
+        List<Offer> listSale = lastSale.checkCriteria(sneaker);
 
-        return salesList.isEmpty() ? List.of() : List.of(salesList.get(salesList.size() - 1));                  
+        return listSale.isEmpty() ? List.of() : List.of(listSale.get(listSale.size() - 1));
+
     }
+
     
 }

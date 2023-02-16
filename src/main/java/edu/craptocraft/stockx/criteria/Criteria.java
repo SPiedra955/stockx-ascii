@@ -6,7 +6,7 @@ import edu.craptocraft.stockx.item.Item;
 import edu.craptocraft.stockx.item.Offer;
 
 public interface Criteria {
-    
-    public List<Offer> checkCriteria(Item sneaker);
 
+    public List<Offer> checkCriteria(Item sneaker);
+    
 }

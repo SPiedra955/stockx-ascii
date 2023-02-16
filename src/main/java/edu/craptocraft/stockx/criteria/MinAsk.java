@@ -7,13 +7,14 @@ import edu.craptocraft.stockx.item.Ask;
 import edu.craptocraft.stockx.item.Item;
 import edu.craptocraft.stockx.item.Offer;
 
-public class MinAsk implements Criteria {
+public class MinAsk implements Criteria{
+
+    public MinAsk(){};
 
     @Override
-    public List<Offer> checkCriteria(Item sneakers){
-
-        return sneakers.offers().stream().filter(c -> c instanceof Ask).
-                        min(Offer::compareTo).stream().collect(Collectors.toList());
+    public List<Offer> checkCriteria(Item sneaker){
+        return sneaker.offers().stream().filter(e -> e instanceof Ask).
+                      min(Offer::compareTo).stream().collect(Collectors.toList());
     }
     
 }
